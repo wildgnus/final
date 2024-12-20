@@ -22,7 +22,7 @@ btnNext.addEventListener('click', () =>{
 // api request movies
 const getMovies = async () =>{
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=514b087562a5b5f4f0136590c7714195&page=${page}`);
+        const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=0a4b185412dd761023ebb7e1b0b10cea&page=${page}`);
         // response status ok
         if(response.status === 200){
             const data = await response.json();
@@ -74,7 +74,7 @@ function searchMovie(){
     if(searchTerm) {
         const getResults = async () =>{
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=514b087562a5b5f4f0136590c7714195&query=${searchTerm}&page=${page}`);
+                const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=0a4b185412dd761023ebb7e1b0b10cea&query=${searchTerm}&page=${page}`);
                 // response status ok
                 if(response.status === 200){
                     const data = await response.json();
