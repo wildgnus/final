@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+#searchbar {
+    width: 80vw;
+    margin: 2vh auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1vh;
+    animation: fadeInDown 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+#searchbar input {
+    width: 70vw;
+    height: 45px;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-right: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+#searchbar input:focus {
+    outline: none;
+    box-shadow: 0 8px 16px rgba(19, 124, 50, 0.7);
+    transform: scale(1.1);
+}
+
+#searchbar button {
+    width: 140px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #1c9c44, #28c96f);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, background 0.4s ease;
+}
+
+#searchbar button:hover {
+    transform: scale(1.2);
+    background: linear-gradient(90deg, #137c32, #0f5e26);
+}
+
+i {
+    color: #fff;
+    transform: scale(1.5);
+    cursor: pointer;
+    margin: 0 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+i:hover {
+    color: #28c96f;
+    transform: scale(1.8);
+}
+
+.content {
+    width: 85vw;
+    max-width: 90vw;
+    margin: 5vh auto;
+    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.movie {
+    height: auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 20px;
+}
+
+.movie:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.movie:hover .title {
+    color: #28c96f;
+}
+
+.poster {
+    width: 100%;
+    height: 85%;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+}
+
+.movie:hover .poster {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.overview {
+    height: auto;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    position: absolute;
+    padding: 1.5rem;
+    left: 0;
+    right: 0;
+    bottom: 15%;
+    background: linear-gradient(90deg, rgba(23,16,41,1) 0%, rgba(23,16,41,0.8) 54%, rgba(23,16,41,0.4) 100%);
+    color: #fff;
+    visibility: hidden;
+    transform: translateY(30%);
+    transition: transform 0.4s ease-in, visibility 0.4s ease-in;
+}
+
+.overview h3 {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #28c96f;
+}
+
+.overview p {
+    text-align: justify;
+    font-size: 0.9rem;
+}
+
+.movie:hover .overview {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.page_index {
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(90deg, #1a1336, #2b1e4c);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    box-shadow: 0px -4px 3px rgba(27, 18, 65, 0.75);
+    animation: slideInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.page_index button {
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    color: #000;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+    transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.page_index button:hover {
+    background: linear-gradient(90deg, #28c96f, #1c9c44);
+    color: #fff;
+    transform: scale(1.2);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
