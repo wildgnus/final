@@ -8,9 +8,22 @@
 
 body {
     font-family: 'Kanit', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: linear-gradient(135deg, #2a2a72, #009ffd);
     color: #fff;
     overflow-x: hidden;
+    animation: gradientBG 10s infinite alternate;
+}
+
+@keyframes gradientBG {
+    0% {
+        background: linear-gradient(135deg, #2a2a72, #009ffd);
+    }
+    50% {
+        background: linear-gradient(135deg, #009ffd, #28c96f);
+    }
+    100% {
+        background: linear-gradient(135deg, #28c96f, #2a2a72);
+    }
 }
 
 #searchbar {
@@ -140,9 +153,9 @@ i:hover {
     bottom: 15%;
     background: linear-gradient(90deg, rgba(23,16,41,1) 0%, rgba(23,16,41,0.8) 54%, rgba(23,16,41,0.4) 100%);
     color: #fff;
-    visibility: hidden;
+    opacity: 0;
     transform: translateY(30%);
-    transition: transform 0.4s ease-in, visibility 0.4s ease-in;
+    transition: transform 0.4s ease-in, opacity 0.4s ease-in;
 }
 
 .overview h3 {
@@ -158,7 +171,7 @@ i:hover {
 }
 
 .movie:hover .overview {
-    visibility: visible;
+    opacity: 1;
     transform: translateY(0);
 }
 
@@ -227,4 +240,70 @@ i:hover {
     to {
         transform: translateY(0);
     }
+}
+
+#movie-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+#movie-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+#movie-poster {
+    max-width: 300px;
+    max-height: 450px;
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+#movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#movie-actors {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.actor {
+    text-align: center;
+    max-width: 150px;
+    margin: 0.5rem;
+    color: #fff;
+}
+
+.actor img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.actor img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.actor p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #28c96f;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
